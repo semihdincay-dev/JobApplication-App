@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body>
+    <main role="main">
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    @*@foreach (var item in Model)*@
+                    <div class="col-md-4">
+                        <div class="card mb-4 box-shadow">
+                            <div class="card-body">
+                                <p class="card-text">Başvuru Yapılan İlan</p>
+                                <p class="card-text">Başvuru Yapan Kişi</p>
+                                <p class="card-text">Başvuru Durumu</p>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Onay
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="Başvuru Durumu">
+                                        <a class="dropdown-item" href="#">Red</a>
+                                        <a class="dropdown-item" href="#">Yeni</a>
+                                        <a class="dropdown-item" href="#">Değerlendiriliyor</a> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+

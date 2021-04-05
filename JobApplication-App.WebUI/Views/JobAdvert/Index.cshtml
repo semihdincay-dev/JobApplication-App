@@ -1,0 +1,41 @@
+﻿@model JobApplication_App.DTO.JobAdvertDTO
+@{
+    ViewData["Title"] = "Index";
+}
+<body>
+    @using (Html.BeginForm("CreateJobAdvert", "JobAdvert", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(z => z.Id)
+        <div class="form-group">
+            <label for="Title">İlan Başlığı</label>
+            @Html.TextBoxFor(z => z.Title, new { @class = "form-control", placeholder = "İlan başlığı giriniz" })
+            @Html.ValidationMessageFor(z => z.Title)
+        </div>
+        <div class="form-group">
+            <label for="Description">Açıklama</label>
+            @Html.TextAreaFor(z => z.Description, new { @class = "form-control", placeholder = "Açıklama" })
+        </div>
+        <div class="form-group">
+            <label for="Description">İşe alınacak kişi sayısı</label>
+            @Html.TextBoxFor(z => z.NumbOfRecruit, new { id = "recruitnumber", type = "number", min = "1", @class = "form-control", placeholder = "İşe alınacak kişi sayısını giriniz.", onChange = "myfunction()"})
+            @Html.ValidationMessageFor(z => z.NumbOfRecruit)
+        </div>
+        <div class="form-group">
+            <label for="Description">Maksimum Başvuru sayısı</label>
+            @Html.TextBoxFor(z => z.MaxAppnum, new { id = "maxappnum", type = "text", @class = "form-control", placeholder = "İşe alınacak kişi sayısını giriniz." })
+        </div>
+        <button type="submit" class="btn btn-primary">İlan ver</button>
+    }
+</body>
+<script>
+    function myfunction(e) {
+        document.body.addEventListener('change', function (e) {
+            let numberofrecruit = document.getElementById("recruitnumber").nodeValue;
+            let maxappnumber = numberofrecruit * 2;
+            document.getElementById("maxappnum").value = maxappnumber;
+        }
+    });
+</script>
